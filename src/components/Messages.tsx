@@ -9,7 +9,7 @@ export const MessagesChat = (message: Message) => {
       key={message.id}
       className={cn(
         message.role === "user" && "flex-row-reverse text-right",
-        "flex items-start gap-3"
+        "flex items-start gap-3 mb-6"
       )}
     >
       {message.role === "user" && (
@@ -25,11 +25,11 @@ export const MessagesChat = (message: Message) => {
           <AvatarFallback>RC</AvatarFallback>
         </Avatar>
       )}
-      <div>
-        <Label className="font-bold">
+      <div className="">
+        <Label className="font-bold text-lg text-neutral-100">
           {message.role === "user" ? "Kayky" : "Think Talk"}
         </Label>
-        <p>{message.content}</p>
+        <p className="text-neutral-200 max-w-[400px]">{message.content}</p>
       </div>
     </div>
   );
