@@ -32,16 +32,16 @@ import * as z from "zod";
 const formSchema = z.object({
   innovateIndustry: z
     .object({
-      industry: z.string(),
-      innovation: z.string(),
-      targetPublic: z.string(),
+      industry: z.string().optional(),
+      innovation: z.string().optional(),
+      targetPublic: z.string().optional(),
     })
     .optional(),
   simplifyProcess: z
     .object({
-      industry: z.string(),
+      industry: z.string().optional(),
       painPoint: z.string(),
-      targetPublic: z.string(),
+      targetPublic: z.string().optional(),
     })
     .optional(),
   createMyPrompt: z.string().optional(),
@@ -95,13 +95,13 @@ export default function Chat() {
     ) => {
       if (active) {
         setActiveTab(tabName);
-        console.log(tabName, active);
       }
     },
     []
   );
 
   useEffect(() => {
+    console.log(activeTab);
     setChatMessages((prev) => ({
       ...prev,
       [activeTab]: [...messages],
