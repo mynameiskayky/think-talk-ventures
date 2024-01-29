@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Documentação do Projeto
 
-## Getting Started
+## Think Talk Ventures Chat
 
-First, run the development server:
+O Think Talk Ventures Chat é um chatbot interativo desenvolvido com <strong>Next.js</strong>, <strong>TypeScript</strong>, <strong>Tailwind CSS</strong> e a biblioteca de componentes <strong>Shadcn</strong>. Ele utiliza a API da OpenAI para integração de inteligência artificial e inclui um SDK de IA da Vercel para facilitar a criação do chat.
+
+## Configuração do Ambiente
+
+### Requisitos
+
+- Node.js (versão recomendada: 18 ou superior)
+- npm (gerenciador de pacotes)
+
+### Configuração
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/mynameiskayky/think-talk-ventures.git
+   ```
+
+2. Acesse o diretório do projeto:
+
+   ```bash
+   cd think-talk-ventures
+   ```
+
+3. Crie um arquivo .env na raiz do projeto e adicione a chave da OpenAI:
+
+   ```bash
+   OPENAI_API_KEY=SuaChaveAqui
+   ```
+
+## Execução do Projeto
+
+1. Instale as dependencias do projeto com o seguinte comando:
+
+```bash
+npm install
+```
+
+2. Para iniciar o servidor de desenvolvimento, utilize o seguinte comando:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Uso do Chat
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O chat é dividido em três seções principais, cada uma com seu formulário específico:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Inovar uma Indústria:**
 
-## Learn More
+   - Preencha as informações solicitadas para gerar um conceito inovador de startup para uma indústria específica.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Simplificar um Processo:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Forneça detalhes sobre a indústria, a dor que deseja resolver e o público-alvo para simplificar um processo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Conversa Livre:**
 
-## Deploy on Vercel
+   - Utilize esta seção para iniciar uma conversa livre. Basta digitar suas ideias e interagir com o chatbot.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p>Feito com amor por <a href="https://www.linkedin.com/in/kaykyvieraa/">Kayky</a></p>
