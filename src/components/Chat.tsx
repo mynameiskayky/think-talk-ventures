@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -88,12 +88,25 @@ export default function Chat() {
     }
   };
 
+  const updateActiveTab = useCallback(
+    (
+      active: boolean,
+      tabName: "innovateIndustry" | "simplifyProcess" | "createPrompt"
+    ) => {
+      if (active) {
+        setActiveTab(tabName);
+        console.log(tabName, active);
+      }
+    },
+    []
+  );
+
   useEffect(() => {
     setChatMessages((prev) => ({
       ...prev,
       [activeTab]: [...messages],
     }));
-  }, [activeTab, messages]);
+  }, [messages, activeTab]);
 
   return (
     <Card className="w-full max-w-xl p-2">
@@ -110,19 +123,37 @@ export default function Chat() {
           <TabsList className="w-full mb-3">
             <TabsTrigger
               value="innovateIndustry"
-              onClick={() => setActiveTab("innovateIndustry")}
+              onClick={(e) =>
+                updateActiveTab(
+                  e.currentTarget.attributes.getNamedItem("data-state")
+                    ?.nodeValue === "active",
+                  "innovateIndustry"
+                )
+              }
             >
               Inovar uma indústria
             </TabsTrigger>
             <TabsTrigger
               value="simplifyProcess"
-              onClick={() => setActiveTab("simplifyProcess")}
+              onClick={(e) =>
+                updateActiveTab(
+                  e.currentTarget.attributes.getNamedItem("data-state")
+                    ?.nodeValue === "active",
+                  "simplifyProcess"
+                )
+              }
             >
               Simplificar um processo
             </TabsTrigger>
             <TabsTrigger
               value="createPrompt"
-              onClick={() => setActiveTab("createPrompt")}
+              onClick={(e) =>
+                updateActiveTab(
+                  e.currentTarget.attributes.getNamedItem("data-state")
+                    ?.nodeValue === "active",
+                  "createPrompt"
+                )
+              }
             >
               Conversa livre
             </TabsTrigger>
@@ -290,9 +321,12 @@ export default function Chat() {
 
           <TabsContent value="createPrompt" className="space-y-4">
             <ScrollArea
-              className={cn("pt-2 pr-6 ", messages.length && "h-[400px]")}
+              className={cn(
+                "pt-2 pr-6 ",
+                chatMessages.createPrompt.length && "h-[400px]"
+              )}
             >
-              {messages?.map((message) => (
+              {chatMessages.createPrompt?.map((message) => (
                 <MessagesChat key={message.id} {...message} />
               ))}
             </ScrollArea>
